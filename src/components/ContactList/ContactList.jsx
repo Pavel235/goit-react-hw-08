@@ -5,7 +5,11 @@ export default function ContactList({ allPeople, onDelete }) {
   return (
     <div className={styles.listBox}>
       <ul className={styles.listElement}>
-        <Contact contacts={allPeople} onDelete={onDelete} />
+        {allPeople.map((person) => (
+          <li className={styles.listItem} key={person.id}>
+            <Contact contact={person} onDelete={onDelete} />
+          </li>
+        ))}
       </ul>
     </div>
   );
