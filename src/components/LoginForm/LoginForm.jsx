@@ -12,7 +12,22 @@ export default function LoginForm() {
       return toast.error("Please fill in all the fields!", { duration: 4000 });
     }
 
-    dispatch(login(values));
+    dispatch(login(values))
+      .unwrap()
+      .then(() => {
+        toast.success("You have successfully logged in!", {
+          duration: 4000,
+        });
+      })
+      .catch(() => {
+        toast.error(
+          "Something went wrong. Please try to input other details!",
+          {
+            duration: 4000,
+          }
+        );
+      });
+
     actions.resetForm();
   };
 

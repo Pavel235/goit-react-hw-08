@@ -22,7 +22,19 @@ export default function RegistrationForm() {
       });
     }
 
-    dispatch(register(values));
+    dispatch(register(values))
+      .unwrap()
+      .then(() => {
+        toast.success("Congratulations! You have successfully registered!", {
+          duration: 4000,
+        });
+      })
+      .catch(() => {
+        toast.error("Registration failed. Please try to input other details!", {
+          duration: 4000,
+        });
+      });
+
     actions.resetForm();
   };
 

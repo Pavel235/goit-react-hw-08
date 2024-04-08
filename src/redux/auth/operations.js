@@ -19,12 +19,6 @@ export const register = createAsyncThunk(
       const response = await axios.post("/users/signup", userInfo);
       setAuthHeader(response.data.token);
 
-      if (response.data.exists) {
-        return toast.error("User with this username/email already exists!", {
-          duration: 4000,
-        });
-      }
-
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
