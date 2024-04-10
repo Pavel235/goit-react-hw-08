@@ -6,8 +6,8 @@ import Layout from "./components/Layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import { RestrictedRoute } from "./RestrictedRoute";
-import { PrivateRoute } from "./PrivateRoute";
+import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const RegistrationPage = lazy(() => import("./pages/Registration"));
